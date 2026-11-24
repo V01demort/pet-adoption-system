@@ -1,0 +1,136 @@
+-- Demonstration data adapted from the original coursework.
+-- Contact information is fictional; dates, statuses and breed labels are normalized.
+BEGIN;
+
+INSERT INTO public.species (species_id, name) VALUES
+    (1, 'Dog'),
+    (2, 'Cat'),
+    (3, 'Rabbit');
+
+INSERT INTO public.breed (breed_id, name, species_id) VALUES
+    (1, 'Labrador', 1),
+    (2, 'German Shepherd', 1),
+    (3, 'Bulldog', 1),
+    (4, 'Siamese', 2),
+    (5, 'Persian', 2),
+    (6, 'Angora', 3);
+
+INSERT INTO public.shelter (shelter_id, name, address, phone) VALUES
+    (1, 'Shelter 1', 'Demo address 1', 'DEMO-S01'),
+    (2, 'Shelter 2', 'Demo address 2', 'DEMO-S02'),
+    (3, 'Shelter 3', 'Demo address 3', 'DEMO-S03'),
+    (4, 'Shelter 4', 'Demo address 4', 'DEMO-S04'),
+    (5, 'Shelter 5', 'Demo address 5', 'DEMO-S05');
+
+INSERT INTO public.pet (pet_id, name, breed_id, shelter_id, age, gender, status) VALUES
+    (1, 'Labrador', 1, 1, 3, 'Male', 'Available'),
+    (2, 'German Shepherd', 2, 1, 4, 'Male', 'Adopted'),
+    (3, 'Bulldog', 3, 2, 4, 'Female', 'Available'),
+    (4, 'Siamese', 4, 2, 1, 'Female', 'Available'),
+    (5, 'Persian', 5, 3, 5, 'Male', 'Adopted'),
+    (6, 'Labrador', 1, 3, 2, 'Female', 'Available'),
+    (7, 'German Shepherd', 2, 4, 6, 'Male', 'Adopted'),
+    (8, 'Siamese', 4, 4, 2, 'Female', 'Available'),
+    (9, 'Persian', 5, 5, 3, 'Male', 'Available'),
+    (10, 'Angora', 6, 5, 1, 'Female', 'Adopted'),
+    (11, 'Labrador', 1, 1, 5, 'Male', 'Available'),
+    (12, 'Siamese', 4, 2, 2, 'Male', 'Adopted'),
+    (13, 'Persian', 5, 3, 3, 'Female', 'Available'),
+    (14, 'German Shepherd', 2, 4, 5, 'Male', 'Available'),
+    (15, 'Bulldog', 3, 5, 1, 'Female', 'Adopted'),
+    (16, 'Labrador', 1, 1, 3, 'Male', 'Available'),
+    (17, 'Siamese', 4, 2, 3, 'Female', 'Adopted'),
+    (18, 'German Shepherd', 2, 3, 6, 'Male', 'Available'),
+    (19, 'Persian', 5, 4, 4, 'Female', 'Available'),
+    (20, 'Angora', 6, 5, 1, 'Female', 'Adopted'),
+    (21, 'Labrador', 1, 1, 6, 'Male', 'Available'),
+    (22, 'Bulldog', 3, 2, 2, 'Female', 'Adopted'),
+    (23, 'German Shepherd', 2, 3, 4, 'Male', 'Available'),
+    (24, 'Siamese', 4, 4, 3, 'Female', 'Available'),
+    (25, 'Persian', 5, 5, 2, 'Male', 'Adopted'),
+    (26, 'Labrador', 1, 1, 7, 'Male', 'Available'),
+    (27, 'Siamese', 4, 2, 1, 'Female', 'Available'),
+    (28, 'German Shepherd', 2, 3, 5, 'Male', 'Available'),
+    (29, 'Persian', 5, 4, 3, 'Female', 'Available'),
+    (30, 'Angora', 6, 5, 2, 'Male', 'Available');
+
+INSERT INTO public.adopter (adopter_id, first_name, last_name, contact_phone) VALUES
+    (1, 'Adopter', '01', 'DEMO-A01'),
+    (2, 'Adopter', '02', 'DEMO-A02'),
+    (3, 'Adopter', '03', 'DEMO-A03'),
+    (4, 'Adopter', '04', 'DEMO-A04'),
+    (5, 'Adopter', '05', 'DEMO-A05'),
+    (6, 'Adopter', '06', 'DEMO-A06'),
+    (7, 'Adopter', '07', 'DEMO-A07'),
+    (8, 'Adopter', '08', 'DEMO-A08'),
+    (9, 'Adopter', '09', 'DEMO-A09'),
+    (10, 'Adopter', '10', 'DEMO-A10'),
+    (11, 'Adopter', '11', 'DEMO-A11'),
+    (12, 'Adopter', '12', 'DEMO-A12'),
+    (13, 'Adopter', '13', 'DEMO-A13'),
+    (14, 'Adopter', '14', 'DEMO-A14'),
+    (15, 'Adopter', '15', 'DEMO-A15'),
+    (16, 'Adopter', '16', 'DEMO-A16'),
+    (17, 'Adopter', '17', 'DEMO-A17'),
+    (18, 'Adopter', '18', 'DEMO-A18'),
+    (19, 'Adopter', '19', 'DEMO-A19'),
+    (20, 'Adopter', '20', 'DEMO-A20'),
+    (21, 'Adopter', '21', 'DEMO-A21'),
+    (22, 'Adopter', '22', 'DEMO-A22'),
+    (23, 'Adopter', '23', 'DEMO-A23'),
+    (24, 'Adopter', '24', 'DEMO-A24'),
+    (25, 'Adopter', '25', 'DEMO-A25'),
+    (26, 'Adopter', '26', 'DEMO-A26'),
+    (27, 'Adopter', '27', 'DEMO-A27'),
+    (28, 'Adopter', '28', 'DEMO-A28'),
+    (29, 'Adopter', '29', 'DEMO-A29'),
+    (30, 'Adopter', '30', 'DEMO-A30');
+
+INSERT INTO public.application (application_id, adopter_id, pet_id, application_date, status) VALUES
+    (1, 1, 1, '2024-05-01', 'Pending'),
+    (2, 2, 2, '2024-05-01', 'Approved'),
+    (3, 3, 3, '2024-05-02', 'Rejected'),
+    (4, 4, 4, '2024-05-02', 'Pending'),
+    (5, 5, 5, '2024-02-05', 'Approved'),
+    (6, 6, 6, '2024-02-10', 'Pending'),
+    (7, 7, 7, '2024-02-12', 'Approved'),
+    (8, 8, 8, '2024-02-15', 'Rejected'),
+    (9, 9, 9, '2024-03-01', 'Pending'),
+    (10, 10, 10, '2024-03-05', 'Approved'),
+    (11, 11, 11, '2024-03-10', 'Pending'),
+    (12, 12, 12, '2024-03-12', 'Approved'),
+    (13, 13, 13, '2024-03-15', 'Rejected'),
+    (14, 14, 14, '2024-04-01', 'Pending'),
+    (15, 15, 15, '2024-04-05', 'Approved'),
+    (16, 16, 16, '2024-04-10', 'Pending'),
+    (17, 17, 17, '2024-04-12', 'Approved'),
+    (18, 18, 18, '2024-04-15', 'Rejected'),
+    (19, 19, 19, '2024-05-01', 'Pending'),
+    (20, 20, 20, '2024-05-05', 'Approved'),
+    (21, 21, 21, '2024-05-10', 'Pending'),
+    (22, 22, 22, '2024-05-12', 'Approved'),
+    (23, 23, 23, '2024-05-15', 'Rejected'),
+    (24, 24, 24, '2024-06-01', 'Pending'),
+    (25, 25, 25, '2024-06-05', 'Approved'),
+    (26, 26, 26, '2024-06-10', 'Pending'),
+    (27, 27, 27, '2024-06-12', 'Approved'),
+    (28, 28, 28, '2024-06-15', 'Rejected'),
+    (29, 29, 29, '2024-07-01', 'Pending'),
+    (30, 30, 30, '2024-07-05', 'Approved'),
+    (31, 1, 2, '2024-09-01', 'Rejected'),
+    (32, 1, 3, '2024-09-02', 'Approved'),
+    (33, 2, 4, '2024-09-03', 'Pending');
+
+INSERT INTO public.adoption (adoption_id, application_id, adoption_date) VALUES
+    (1, 2, '2024-05-06 00:00:00'),
+    (2, 5, '2024-02-10 00:00:00'),
+    (3, 7, '2024-02-20 00:00:00'),
+    (4, 10, '2024-03-10 00:00:00'),
+    (5, 12, '2024-03-20 00:00:00'),
+    (6, 15, '2024-04-10 00:00:00'),
+    (7, 17, '2024-04-20 00:00:00'),
+    (8, 20, '2024-05-10 00:00:00'),
+    (9, 22, '2024-05-20 00:00:00'),
+    (10, 25, '2024-06-10 00:00:00');
+
+COMMIT;
